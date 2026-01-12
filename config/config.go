@@ -61,6 +61,16 @@ type VoiceServiceConfig struct {
 	VoiceServiceSecretKey string `toml:"voiceServiceSecretKey"`
 }
 
+// BlogMysqlConfig 外部博客数据库配置
+type BlogMysqlConfig struct {
+	BlogMysqlPort         int    `toml:"port"`
+	BlogMysqlHost         string `toml:"host"`
+	BlogMysqlUser         string `toml:"user"`
+	BlogMysqlPassword     string `toml:"password"`
+	BlogMysqlDatabaseName string `toml:"databaseName"`
+	BlogMysqlCharset      string `toml:"charset"`
+}
+
 type Config struct {
 	EmailConfig        `toml:"emailConfig"`
 	RedisConfig        `toml:"redisConfig"`
@@ -70,6 +80,7 @@ type Config struct {
 	Rabbitmq           `toml:"rabbitmqConfig"`
 	RagModelConfig     `toml:"ragModelConfig"`
 	VoiceServiceConfig `toml:"voiceServiceConfig"`
+	BlogMysqlConfig    `toml:"blogMysqlConfig"`
 }
 
 type RedisKeyConfig struct {

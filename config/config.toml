@@ -4,11 +4,11 @@ host = "0.0.0.0"
 port = 9090
 
 [emailConfig]
-authcode = "letluzytpsexdhcj"
-email = "3189769526@qq.com"
+authcode = "pxjzuzvucvqgbfgf"
+email = "892918384@qq.com"
 
 [redisConfig]
-host = "127.0.0.1"
+host = "redis-vector"
 port = 6379
 password = ""
 db = 0
@@ -42,5 +42,13 @@ charset =  "utf8mb4"
   dimension=1024
 
   [voiceServiceConfig]
-  voiceServiceApiKey = "Vl4nfabwhipYddiGMTXI1sXZ"
-  voiceServiceSecretKey ="hKzdAp1djkLLU1XsraadhVxLDjdkDVOU"
+  voiceServiceApiKey = "o6uf1mYSvJREVWmlp0PkVzHx"
+  voiceServiceSecretKey ="4IxFkW7pHUFQHXDugGXhfUWE32xzdxbq"
+
+  [blogMysqlConfig]
+  host = "host.docker.internal"
+  port = 13316
+  user = "root"
+  password = "root"
+  databaseName = "webook_article"
+  charset = "utf8mb4"

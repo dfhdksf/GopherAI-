@@ -2,12 +2,14 @@ package main
 
 import (
 	"GopherAI/common/aihelper"
+	"GopherAI/common/blogdb"
 	"GopherAI/common/mysql"
 	"GopherAI/common/rabbitmq"
 	"GopherAI/common/redis"
 	"GopherAI/config"
 	"GopherAI/dao/message"
 	"GopherAI/router"
+	"GopherAI/service/articlesync"
 	"fmt"
 	"log"
 )
@@ -67,8 +69,18 @@ func main() {
 	rabbitmq.InitRabbitMQ()
 	log.Println("rabbitmq init success  ")
 
+	// 初始化博客数据库连接（用于文章同步）
+	if err := blogdb.InitBlogDB(); err != nil {
+		log.Printf("InitBlogDB error (article sync disabled): %v", err)
+	} else {
+		log.Println("blog database init success")
+		// 启动文章同步服务
+		go articlesync.StartSyncService()
+	}
+
 	err := StartServer(host, port) // 启动 HTTP 服务
 	if err != nil {
 		panic(err)
 	}
 }
+

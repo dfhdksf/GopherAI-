@@ -1,0 +1,17 @@
+# Build artifacts
+GopherAI
+GopherAI-build
+
+# Editor temporary files
+*.swp
+*.swo
+
+# Dependencies
+vue-frontend/node_modules/
+node_modules/
+
+# User data
+uploads/
+
+# Logs
+*.log
